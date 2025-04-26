@@ -1,6 +1,5 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import './index.css'; // if you plan to add global styles
 
 function App() {
   return (
@@ -13,5 +12,4 @@ function App() {
 }
 
 const container = document.getElementById('root');
-const root = createRoot(container);
-root.render(<App />);
+createRoot(container).render(<App />);
