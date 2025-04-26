@@ -1,0 +1,4 @@
+# ignore build outputs & node modules
+frontend/dist
+frontend/node_modules
+backend/node_modules

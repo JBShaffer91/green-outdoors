@@ -1,0 +1,74 @@
+[
+    {
+      "name": "Skydiving",
+      "category": "Air",
+      "icon": "/icons/skydiving.svg",
+      "coords": [39.0968, -120.0324],
+      "gear": ["Parachute", "Altimeter", "Jumpsuit"],
+      "safetyTip": "Always do a thorough gear check before jumping."
+    },
+    {
+      "name": "Paragliding",
+      "category": "Air",
+      "icon": "/icons/paragliding.svg",
+      "coords": [32.8618, -117.2713],
+      "gear": ["Paraglider Wing", "Harness", "Reserve Parachute"],
+      "safetyTip": "Check wind direction and speed before every flight."
+    },
+    {
+      "name": "Hot-air Ballooning",
+      "category": "Air",
+      "icon": "/icons/balloon.svg",
+      "coords": [38.2975, -122.2869],
+      "gear": ["Envelope & Basket", "Burner System", "Propane Tanks"],
+      "safetyTip": "Confirm fuel levels and inspect the envelope for tears."
+    },
+    {
+      "name": "Hiking",
+      "category": "Land",
+      "icon": "/icons/hiking.svg",
+      "coords": [37.8651, -119.5383],
+      "gear": ["Backpack", "Hiking Boots", "Water Bottles"],
+      "safetyTip": "Tell someone your route and expected return time."
+    },
+    {
+      "name": "Rock Climbing",
+      "category": "Land",
+      "icon": "/icons/climbing.svg",
+      "coords": [33.8734, -115.9010],
+      "gear": ["Climbing Harness", "Climbing Shoes", "Helmet"],
+      "safetyTip": "Always double-check your knot and belay setup."
+    },
+    {
+      "name": "Camping",
+      "category": "Land",
+      "icon": "/icons/camping.svg",
+      "coords": [41.2132, -124.0046],
+      "gear": ["Tent", "Sleeping Bag", "Camping Stove"],
+      "safetyTip": "Store food away from your tent to avoid wildlife visits."
+    },
+    {
+      "name": "Sailing",
+      "category": "Sea",
+      "icon": "/icons/sailing.svg",
+      "coords": [37.8199, -122.4783],
+      "gear": ["Life Jacket", "Sailing Gloves", "Marine GPS"],
+      "safetyTip": "Always check tide and current forecasts before departure."
+    },
+    {
+      "name": "Scuba Diving",
+      "category": "Sea",
+      "icon": "/icons/scuba.svg",
+      "coords": [33.3870, -118.4165],
+      "gear": ["Wetsuit", "Regulator", "Dive Computer"],
+      "safetyTip": "Never dive alone—always buddy up and plan your ascent."
+    },
+    {
+      "name": "Surfing",
+      "category": "Sea",
+      "icon": "/icons/surfing.svg",
+      "coords": [33.6595, -117.9988],
+      "gear": ["Surfboard", "Leash", "Rash Guard"],
+      "safetyTip": "Check local rip current reports before paddling out."
+    }
+  ]
