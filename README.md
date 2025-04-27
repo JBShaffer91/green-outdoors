@@ -53,7 +53,7 @@ Green Outdoors Co is the **ultimate adventure companion** for air, land, and sea
 ### Local
 ```bash
 # Clone the repo
-git clone https://github.com/<your-username>/green-outdoors.git
+git clone https://github.com/JBShaffer91/green-outdoors
 cd green-outdoors/frontend
 
 # Install dependencies
