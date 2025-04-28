@@ -1,3 +1,31 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* src/index.css */
+.hero-bg {
+  @apply bg-hero-photo bg-center bg-cover relative;
+  /* layer the topo SVG over the photo at low opacity */
+  background-image:
+    var(--tw-bg-image),       /* topo SVG */
+    var(--tw-bg-image);       /* photo */
+  background-blend-mode: overlay;
+}
+/* then set the second image manually */
+.hero-bg {
+  background-image:
+    url('/assets/hero-topo.svg'),
+    url('/assets/hero-photo.jpg');
+}
+.hero-bg::before {
+  /* 80% dark overlay */
+  content: '';
+  @apply absolute inset-0 bg-black bg-opacity-80;
+  pointer-events: none;
+  z-index: 0;
+}
+/* grain/noise layer */
+.grain {
+  background: url('/assets/grain.png') repeat;
+  opacity: 0.05;
+}
