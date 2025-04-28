@@ -1,36 +1,45 @@
+// src/index.jsx
+
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 
-// Pull in activities data
+// data & components
 import activities from './data/activities.json';
-
-// Pull in components
 import { ActivityFilter } from './components/ActivityFilter';
 import { ActivityCard }   from './components/ActivityCard';
 
 function App() {
-  // Add state for which category is selected
   const [selected, setSelected] = useState('Land');
-  
-  // Filter the activities array based on that state
   const filtered = activities.filter(a => a.category === selected);
 
   return (
-    <div className="p-6 bg-green-50 min-h-screen">
-      <h1 className="text-4xl font-bold text-center text-green-800">
-        Green Outdoors Co
-      </h1>
+    <div className="min-h-screen font-body">
+      {/* HERO */}
+      <header className="hero-bg h-screen flex flex-col justify-center items-center text-white text-center px-4">
+        <div className="relative z-10 max-w-2xl">
+          <h1 className="font-heading uppercase tracking-widest text-5xl mb-4">
+            Mission Briefing
+          </h1>
+          <p className="text-lg mb-6">
+            Choose your domain: Air, Land, or Sea
+          </p>
+          <button className="px-6 py-3 bg-signalRed uppercase font-semibold tracking-wide rounded-md hover:bg-red-600 transition">
+            Launch Recon
+          </button>
+        </div>
+      </header>
 
-      {/* Render filter buttons */}
-      <ActivityFilter selected={selected} onChange={setSelected} />
+      {/* MAIN CONTENT */}
+      <main className="p-8 bg-green-50">
+        <ActivityFilter selected={selected} onChange={setSelected} />
 
-      {/* Render a grid of cards for filtered activities */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 justify-center mt-6">
-        {filtered.map(act => (
-          <ActivityCard key={act.name} activity={act} />
-        ))}
-      </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-8">
+          {filtered.map(act => (
+            <ActivityCard key={act.name} activity={act} />
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
