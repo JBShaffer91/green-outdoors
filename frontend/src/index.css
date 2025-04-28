@@ -1,9 +1,15 @@
+/* src/index.css */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* HERO SECTION: single composite background */
-.hero-bg {
-  @apply bg-center bg-cover relative;
+/* Apply a fixed, cover background to the whole app */
+body {
+  @apply bg-center bg-cover bg-fixed;
   background-image: url('/assets/hero-combo.png');
+}
+
+/* Push the main content below the fixed navbar */
+main {
+  @apply pt-20; /* adjust if navbar height changes */
 }

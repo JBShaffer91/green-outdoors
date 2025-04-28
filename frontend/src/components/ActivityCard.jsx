@@ -1,12 +1,21 @@
+/* src/components/ActivityCard.jsx */
 import React from 'react';
 
 export function ActivityCard({ activity }) {
   return (
-    <div className="w-40 p-4 bg-white rounded-lg shadow-md flex flex-col items-center">
-      {/* Replace with real icons as you add them */}
-      <img src={activity.icon} alt={activity.name} className="h-12 mb-2" />
-      <h3 className="font-bold text-lg text-gray-800 mb-1">{activity.name}</h3>
-      <p className="text-sm text-gray-600">{activity.category}</p>
+    <div className="
+      bg-[#F4F4F4] border border-slate rounded-2xl p-6 flex flex-col items-center
+      transform transition hover:-translate-y-1 hover:shadow-lg
+    ">
+      <img
+        src={activity.icon}
+        alt={activity.name}
+        className="h-12 mb-4 filter grayscale hover:filter-none transition duration-300"
+      />
+      <h3 className="font-heading uppercase tracking-wide text-lg text-charcoal mb-2">
+        {activity.name}
+      </h3>
+      <p className="text-sm text-slate">{activity.category}</p>
     </div>
   );
 }
