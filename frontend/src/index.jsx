@@ -1,4 +1,4 @@
-/* src/index.jsx */
+// src/index.jsx
 import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
@@ -15,7 +15,7 @@ function App() {
   return (
     <>
       <Navbar selected={selected} onSelect={setSelected} />
-      <main className="min-h-screen font-body text-charcoal container mx-auto px-6 py-8">
+      <main className="pt-20 min-h-screen font-body text-charcoal container mx-auto px-6 py-8">
         <ActivityFilter selected={selected} onChange={setSelected} />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
           {filtered.map(act => (
