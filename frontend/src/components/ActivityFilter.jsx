@@ -10,12 +10,11 @@ export function ActivityFilter({ selected, onChange }) {
         <button
           key={cat}
           onClick={() => onChange(cat)}
-          className={`
-            px-5 py-2 rounded-full font-heading uppercase text-sm tracking-wide transition
-            ${selected === cat
+          className={`px-5 py-2 rounded-full font-heading uppercase text-sm tracking-wide transition ${
+            selected === cat
               ? 'bg-militaryGreen text-white'
-              : 'bg-desertTan text-charcoal hover:bg-desertTan/80'}
-          `}
+              : 'bg-desertTan text-charcoal hover:bg-desertTan/80'
+          }`}
         >
           {cat}
         </button>

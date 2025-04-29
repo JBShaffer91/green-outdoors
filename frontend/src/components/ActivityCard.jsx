@@ -3,10 +3,7 @@ import React from 'react';
 
 export function ActivityCard({ activity }) {
   return (
-    <div className="
-      bg-[#F4F4F4] border border-slate rounded-2xl p-6 flex flex-col items-center
-      transform transition hover:-translate-y-1 hover:shadow-lg
-    ">
+    <div className="bg-[#F4F4F4] border border-slate rounded-2xl p-6 flex flex-col items-center transform transition hover:-translate-y-1 hover:shadow-lg">
       <img
         src={activity.icon}
         alt={activity.name}
