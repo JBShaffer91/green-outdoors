@@ -3,8 +3,16 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Apply a fixed, cover background to the whole app */
+/* Global fixed background for app */
 body {
   @apply bg-center bg-cover bg-fixed;
   background-image: url('/assets/hero-combo.png');
+}
+
+/* ——— Legacy global utilities ——— */
+a {
+  color: #0077cc;
+}
+.border-top {
+  border-top: 1px solid #e5e5e5;
 }

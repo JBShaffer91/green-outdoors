@@ -1,28 +1,67 @@
-/* src/index.jsx */
-import React, { useState } from 'react';
+// src/index.jsx
+import React, { useState, useEffect, useRef } from 'react';
 import { createRoot } from 'react-dom/client';
 import './index.css';
 
+// Import Leaflet styles correctly from node_modules
+import 'leaflet/dist/leaflet.css';
+
 import activities from './data/activities.json';
-import { Navbar } from './components/Navbar';
+import { Navbar }         from './components/Navbar';
 import { ActivityFilter } from './components/ActivityFilter';
-import { ActivityCard } from './components/ActivityCard';
+import { WeatherWidget }  from './components/WeatherWidget';
 
 function App() {
   const [selected, setSelected] = useState('Land');
-  const filtered = activities.filter(a => a.category === selected);
+  const heroRef = useRef(null);
+
+  // Find the first activity in the selected category
+  const featured = activities.find(a => a.category === selected);
+
+  // Whenever selected changes, scroll hero into view
+  useEffect(() => {
+    heroRef.current?.scrollIntoView({ behavior: 'smooth' });
+  }, [selected]);
 
   return (
     <>
+      {/* Top Nav */}
       <Navbar selected={selected} onSelect={setSelected} />
-      <main className="pt-20 min-h-screen font-body text-charcoal container mx-auto px-6 py-8">
-        <ActivityFilter selected={selected} onChange={setSelected} />
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-6">
-          {filtered.map(act => (
-            <ActivityCard key={act.name} activity={act} />
-          ))}
+
+      {/* Hero */}
+      <header
+        ref={heroRef}
+        className="hero-bg relative h-screen flex flex-col justify-center items-center text-white text-center px-4"
+      >
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/50" />
+
+        <div className="relative z-10 space-y-6 max-w-xl">
+          {/* Dynamic headline */}
+          <h1 className="font-heading uppercase tracking-widest text-6xl">
+            {selected} Conditions
+          </h1>
+          <p className="text-lg">
+            Real-time weather & recommendations for your next {selected.toLowerCase()} adventure.
+          </p>
+
+          {/* Domain filter */}
+          <ActivityFilter selected={selected} onChange={setSelected} />
+
+          {/* Live weather */}
+          {featured && (
+            <div className="mt-6">
+              <WeatherWidget
+                lat={featured.coords[0]}
+                lon={featured.coords[1]}
+              />
+            </div>
+          )}
         </div>
-      </main>
+      </header>
+
+      <main className="pt-20 min-h-screen" />
+
     </>
   );
 }
