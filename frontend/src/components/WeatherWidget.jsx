@@ -2,16 +2,20 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-// Leaflet components
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 
-// fix default icon paths (required for many bundlers)
+// Bring in the marker images as ES imports
+import iconRetinaUrl from 'leaflet/dist/images/marker-icon-2x.png';
+import iconUrl       from 'leaflet/dist/images/marker-icon.png';
+import shadowUrl     from 'leaflet/dist/images/marker-shadow.png';
+
+// Override Leaflet’s defaults using those imports
 delete L.Icon.Default.prototype._getIconUrl;
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl:   require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl:         require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl:       require('leaflet/dist/images/marker-shadow.png'),
+  iconRetinaUrl,
+  iconUrl,
+  shadowUrl,
 });
 
 export function WeatherWidget({ lat, lon }) {
@@ -23,7 +27,6 @@ export function WeatherWidget({ lat, lon }) {
     const key = import.meta.env.VITE_OPENWEATHER_API_KEY;
     if (!key) return setError('Missing API key');
 
-    // Fetch basic weather + wind/humidity
     axios
       .get(`https://api.openweathermap.org/data/2.5/weather`, {
         params: { lat, lon, units: 'imperial', appid: key }
@@ -44,12 +47,11 @@ export function WeatherWidget({ lat, lon }) {
       });
   }, [lat, lon]);
 
-  if (error)   return <p className="text-red-600">{error}</p>;
+  if (error)    return <p className="text-red-600">{error}</p>;
   if (!weather) return <p>Loading weather…</p>;
 
   return (
     <div className="space-y-4 max-w-lg w-full">
-      {/* Map */}
       <MapContainer 
         center={[lat, lon]} 
         zoom={10} 
@@ -71,7 +73,6 @@ export function WeatherWidget({ lat, lon }) {
         </Marker>
       </MapContainer>
 
-      {/* Data panel */}
       <div className="grid grid-cols-2 gap-4 bg-white p-4 rounded-lg shadow-md">
         <div>
           <p className="text-sm text-gray-500">Wind Speed</p>
